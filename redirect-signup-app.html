@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cadastro App MeuEnsaio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/1.0.35/ua-parser.min.js" integrity="sha512-NFakOi+DmIPYaw0Nv1JKnISn+SrB35pOgOWAtHOJc5BcDFzAI7QHRHqoABXZM59lSkmTq7Hy6b3R2fMHZRvHaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      * {
+        background-color: #e1e1f3;
+      }
+
+      .lds-dual-ring {
+        position: absolute;
+        left: 40%;
+        top: 50%;
+      }
+
+      .lds-dual-ring:after {
+        content: ' ';
+        display: block;
+        width: 44px;
+        height: 44px;
+        margin: 6px;
+        border-radius: 50%;
+        border: 6px solid #6715a3;
+        border-color: #6715a3 transparent #6715a3 transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media screen and (min-width: 600px) {
+        .lds-dual-ring {
+          left: 50%;
+        }
+      }
+
+      /*.lds-dual-ring > span {*/
+      /*    position: absolute;*/
+      /*    width: 200px;*/
+      /*    bottom: -20px;*/
+      /*    left: -30px;*/
+      /*    color: #430c6b;*/
+      /*}*/
+    </style>
+    <script>
+      const searchParams = new URLSearchParams(decodeURIComponent(window.location.search))
+
+      setTimeout(() => {
+        window.location.href = searchParams.get('redirect');
+      }, 100);
+
+      setTimeout(function () {
+        const { device, os } = new UAParser().getResult();
+        const redirectApple = 'https://apps.apple.com/us/app/apple-store';
+
+        if (
+          device.model?.toLowerCase() !== 'iphone' &&
+          device.vendor?.toLowerCase() !== 'apple' &&
+          !os.name?.toLowerCase().includes('mac')
+        ) {
+          document.location = 'https://play.google.com/store/apps';
+          return;
+        }
+
+        document.location = redirectApple;
+      }, 6000);
+
+    </script>
+  </head>
+  <body>
+    <div class="lds-dual-ring"></div>
+  </body>
+</html>
