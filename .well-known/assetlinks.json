@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "{package_name}",
+      "package_name": "com.meuensaio.app",
       "sha256_cert_fingerprints": [
-        "{sha256_cert_fingerprints}"
+        "56:6D:41:76:33:33:9A:6B:F2:38:3F:24:3A:75:17:FA:61:05:40:29:EF:07:7B:12:4B:CD:74:35:66:32:E3:DA"
       ]
     }
   }
