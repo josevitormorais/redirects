@@ -5,7 +5,6 @@
       "namespace": "android_app",
       "package_name": "{package_name}",
       "sha256_cert_fingerprints": [
-        // Supports multiple fingerprints for different apps and keys
         "{sha256_cert_fingerprints}"
       ]
     }
